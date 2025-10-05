@@ -1,0 +1,65 @@
+---
+import TextContent from './text-content.astro';
+---
+
+<TextContent
+  element="h3"
+  variant="30-48"
+  className="px-5 text-center font-bold text-gray-400"
+>
+  Making{'  '}
+  <span
+    class="bg-[linear-gradient(50deg,_#22D3EE_45.43%,_#0C4A6E_99.84%)] bg-clip-text bg-no-repeat text-transparent [text-shadow:0_0_rgba(0,0,0,0.1)]"
+  >
+    Health Simple
+  </span>
+</TextContent>
+
+<section class="lg:py-12 lg:flex lg:justify-center">
+  <div
+    class="overflow-hidden bg-white lg:mx-8 lg:flex lg:max-w-6xl lg:w-full lg:shadow-md lg:rounded-xl items-center"
+  >
+    <div class="lg:w-1/2">
+      <div
+        class="h-64 bg-cover lg:h-full lg:min-h-[29rem]"
+        style="background-image:url('mission.webp')"
+      >
+      </div>
+    </div>
+
+    <div class="max-w-xl px-6 lg:px-10 py-12 lg:max-w-5xl lg:w-1/2">
+      <h2 class="text-2xl font-semibold text-gray-800 md:text-5xl">
+        Our Mission
+        <!-- <span class="text-blue-500">Idea</span> -->
+      </h2>
+
+      <p class="mt-4 text-gray-500">
+        To lighten the administrative burden on caregivers and empower hospital
+        staff to focus on care, not paperwork. We believe healthcare providers
+        should spend their time healing, not handling manual processes.
+      </p>
+
+      <div class="flex gap-6 w-full mt-6">
+        <span class="flex flex-col items-center">
+          <TextContent element="span" variant="24-32" text="50%" />
+          <TextContent
+            element="span"
+            variant="16-20"
+            text="Less Paperwork"
+            className="text-gray-700"
+          />
+        </span>
+
+        <span class="flex flex-col items-center">
+          <TextContent element="span" variant="24-32" text="2x" />
+          <TextContent
+            element="span"
+            variant="16-20"
+            text="Faster Onboarding"
+            className="text-gray-700"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

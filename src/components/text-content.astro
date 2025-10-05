@@ -1,0 +1,211 @@
+---
+// import displayPartialText from '@/lib/displayPartialText';
+import clsx from 'clsx';
+
+interface Props {
+  element:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'span'
+    | 'p'
+    | 'del'
+    | 'button';
+  variant:
+    | '22-32'
+    | '16-18'
+    | '20-28'
+    | '10-12'
+    | '12-14'
+    | '12-16'
+    | '14-16'
+    | '10-14'
+    | '16-28'
+    | '16-24'
+    | '18-36'
+    | '10-20'
+    | '12-18'
+    | '10-16'
+    | '18-28'
+    | '20-24'
+    | '24-48'
+    | '30-48'
+    | '14-20'
+    | '14-18'
+    | '16-20'
+    | '24-32'
+    | '22-28'
+    | '10'
+    | '14'
+    | '12'
+    | '16'
+    | '18'
+    | '20'
+    | '22';
+  text?: string;
+  partialTextCompleteLastWord?: boolean;
+  partialTextSuffix?: string;
+  maxLength?: number;
+  className?: string;
+  [key: string]: any;
+}
+
+const {
+  element,
+  variant,
+  text,
+  partialTextCompleteLastWord = false,
+  partialTextSuffix = '...',
+  maxLength,
+  className,
+  ...rest
+} = Astro.props;
+
+const fontSize = (() => {
+  let classes: string;
+  switch (variant) {
+    case '22-32': {
+      classes = 'text-[22px] md:text-[32px]';
+      break;
+    }
+    case '16-18': {
+      classes = 'text-[16px] md:text-[18px]';
+      break;
+    }
+    case '20-28': {
+      classes = 'text-[20px] md:text-[28px]';
+      break;
+    }
+    case '12-14': {
+      classes = 'text-[12px] md:text-[14px]';
+      break;
+    }
+    case '12-16': {
+      classes = 'text-[12px] md:text-[16px]';
+      break;
+    }
+    case '14-16': {
+      classes = 'text-[14px] md:text-[16px]';
+      break;
+    }
+    case '10-12': {
+      classes = 'text-[10px] md:text-[12px]';
+      break;
+    }
+    case '10-14': {
+      classes = 'text-[10px] md:text-[14px]';
+      break;
+    }
+    case '16-28': {
+      classes = 'text-[16px] md:text-[28px]';
+      break;
+    }
+    case '16-24': {
+      classes = 'text-[16px] md:text-[24px]';
+      break;
+    }
+    case '18-36': {
+      classes = 'text-[16px] md:text-[36px]';
+      break;
+    }
+    case '10-20': {
+      classes = 'text-[10px] md:text-[20px]';
+      break;
+    }
+    case '12-18': {
+      classes = 'text-[12px] md:text-[18px]';
+      break;
+    }
+    case '10-16': {
+      classes = 'text-[10px] md:text-[16px]';
+      break;
+    }
+    case '24-48': {
+      classes = 'text-[24px] md:text-[48px]';
+      break;
+    }
+    case '30-48': {
+      classes = 'text-[30px] md:text-[48px]';
+      break;
+    }
+    case '14-20': {
+      classes = 'text-[14px] md:text-[20px]';
+      break;
+    }
+    case '14-18': {
+      classes = 'text-[14px] md:text-[18px]';
+      break;
+    }
+    case '16-20': {
+      classes = 'text-[16px] md:text-[20px]';
+      break;
+    }
+    case '24-32': {
+      classes = 'text-[24px] md:text-[32px]';
+      break;
+    }
+    case '22-28': {
+      classes = 'text-[22px] md:text-[28px]';
+      break;
+    }
+    case '18-28': {
+      classes = 'text-[18px] md:text-[28px]';
+      break;
+    }
+    case '20-24': {
+      classes = 'text-[20px] md:text-[24px]';
+      break;
+    }
+    case '10': {
+      classes = 'text-[10px]';
+      break;
+    }
+    case '14': {
+      classes = 'text-[14px]';
+      break;
+    }
+    case '12': {
+      classes = 'text-[12px]';
+      break;
+    }
+    case '16': {
+      classes = 'text-[16px]';
+      break;
+    }
+    case '18': {
+      classes = 'text-[18px]';
+      break;
+    }
+    case '20': {
+      classes = 'text-[20px]';
+      break;
+    }
+    case '22': {
+      classes = 'text-[22px]';
+      break;
+    }
+  }
+  return classes;
+})();
+
+const finalClassName = clsx(fontSize, className);
+const finalText = text || '';
+const content = finalText
+// maxLength
+//   ? displayPartialText(finalText, {
+//       maxLength,
+//       completeLastWord: partialTextCompleteLastWord,
+//       suffix: partialTextSuffix,
+//     })
+//   : finalText;
+
+const Element = element;
+---
+
+<Element class={finalClassName} {...rest}>
+  {content}
+  <slot />
+</Element>
